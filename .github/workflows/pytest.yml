@@ -18,10 +18,8 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install Chrome
-        run: |
-          sudo apt update
-          sudo apt install -y google-chrome-stable
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
 
       - name: Install dependencies
         run: |
