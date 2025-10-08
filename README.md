@@ -1,46 +1,28 @@
-# Selenium Login & Sorting Tests
+# Selenium Login Tests
 
-Simple, clean UI tests with Python, Selenium, and PyTest.  
-Covers two flows:
-- Login on saucedemo.com
-- Sorting by name (A - Z) on an OpenCart category page
+![Python](https://img.shields.io/badge/python-3.12-blue)
+![Pytest](https://img.shields.io/badge/tested%20with-pytest-brightgreen)
+![GitHub Actions](https://github.com/fanoctism/selenium-login-tests/actions/workflows/pytest.yml/badge.svg)
 
-## Tech
-- Python 3.12
-- Selenium 4
-- PyTest
-- WebDriver Manager
+Automated web UI tests built with **Selenium**, **Pytest**, and **GitHub Actions**.
 
-## Project structure
-- pages/ - Page Objects
-- tests/ - test suites
-- utils/ - helpers
-- requirements.txt
+---
 
-## Setup
+## 🚀 Features
+
+- End-to-end login validation tests  
+- HTML test reports (`pytest-html`)  
+- GitHub Actions CI integration  
+- Auto-download of WebDriver via `webdriver-manager`  
+- Pre-commit hooks for linting (Black, Flake8, isort)  
+
+---
+
+## 🧪 Run tests locally
+
 ```bash
-python -m venv venv
-venv\Scripts\activate
-pip install -U pip
-pip install -r requirements.txt
+# activate virtual environment
+.\.venv\Scripts\activate
 
-## Run
-```bash
-pytest -q
-# headless (no browser window)
-set HEADLESS=1 && pytest -q
-
-## Tests
-- `tests/test_login.py` - valid login on 'saucedemo.com'  
-- `tests/test_sorting.py` - 'Name (A - Z)' sorting on OpenCart
-
-## Notes
-- Use CSS selectors where possible, avoid sleeps, prefer explicit waits.  
-- Fixed window size for stability: 1280x900.  
-- Selenium Manager handles driver automatically.
-
-## Next steps
-- Add negative login test (wrong password).  
-- Add logout test.  
-- Add GitHub Actions workflow to run tests on push.
-
+# run tests with HTML report
+pytest -v --html=reports/report.html --self-contained-html
