@@ -4,7 +4,6 @@
 
 ![Python](https://img.shields.io/badge/python-3.12-blue)
 ![Pytest](https://img.shields.io/badge/tested%20with-pytest-brightgreen)
-![GitHub Actions](https://github.com/fanoctism/selenium-login-tests/actions/workflows/pytest.yml/badge.svg)
 
 Automated web UI tests built with **Selenium**, **Pytest**, and **GitHub Actions**.
 
@@ -23,7 +22,7 @@ Automated web UI tests built with **Selenium**, **Pytest**, and **GitHub Actions
 ## 🧪 Run tests locally
 
 ```bash
-# activate virtual environment
+# activate virtual environment (Windows)
 .\.venv\Scripts\activate
 
 # run tests with HTML report
