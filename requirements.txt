@@ -3,3 +3,5 @@ pytest
 pytest-xdist
 pytest-html
 webdriver-manager
+pytest-cov
+

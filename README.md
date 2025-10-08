@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/fanoctism/selenium-login-tests/branch/main/graph/badge.svg)](https://codecov.io/gh/fanoctism/selenium-login-tests)
+
 ![Tests](https://github.com/fanoctism/selenium-login-tests/actions/workflows/pytest.yml/badge.svg)
 
 # Selenium Login Tests
