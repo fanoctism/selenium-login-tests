@@ -26,10 +26,24 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run tests and generate report
+      - name: Run tests and generate report + coverage
         run: |
           mkdir -p reports
-          pytest -v --html=reports/report.html --self-contained-html
+          pytest -v --html=reports/report.html --self-contained-html \
+            --cov=pages --cov=tests --cov-report=term-missing --cov-report=xml
+
+      - name: Upload coverage.xml as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-xml
+          path: coverage.xml
+        
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: coverage.xml
+          fail_ci_if_error: true
 
       - name: Upload HTML report
         if: always()
@@ -43,4 +57,3 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: screenshots
-          path: screenshots/
