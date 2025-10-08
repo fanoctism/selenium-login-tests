@@ -1,3 +1,5 @@
+![Tests](https://github.com/fanoctism/selenium-login-tests/actions/workflows/pytest.yml/badge.svg)
+
 # Selenium Login Tests
 
 ![Python](https://img.shields.io/badge/python-3.12-blue)
