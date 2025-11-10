@@ -2,14 +2,13 @@ name: Run Selenium tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, ci_add_conftest ]
   pull_request:
     branches: [ main ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
@@ -26,24 +25,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run tests and generate report + coverage
+      - name: Run tests and generate HTML report
         run: |
           mkdir -p reports
-          pytest -v --html=reports/report.html --self-contained-html \
-            --cov=pages --cov=tests --cov-report=term-missing --cov-report=xml
-
-      - name: Upload coverage.xml as artifact
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-xml
-          path: coverage.xml
-        
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          files: coverage.xml
-          fail_ci_if_error: true
+          pytest -v --html=reports/report.html --self-contained-html
 
       - name: Upload HTML report
         if: always()
@@ -51,9 +36,3 @@ jobs:
         with:
           name: test-report
           path: reports/report.html
-
-      - name: Upload screenshots
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: screenshots
