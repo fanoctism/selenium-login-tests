@@ -1,7 +1,3 @@
-selenium
-pytest
-pytest-xdist
-pytest-html
-webdriver-manager
-pytest-cov
-
+pytest>=8.0
+selenium>=4.25
+pytest-html>=4.1
