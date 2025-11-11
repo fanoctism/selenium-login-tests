@@ -7,3 +7,4 @@ reports/
 screenshots/
 .idea/
 .vscode/
+venv/
